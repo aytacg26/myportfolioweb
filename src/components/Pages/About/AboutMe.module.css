@@ -55,6 +55,14 @@
   color: var(--header-text-color);
 }
 
+.BagdeSection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+
 .GitHubContainer {
   display: flex;
   width: 95%;
@@ -107,7 +115,7 @@
 }
 
 .Section p {
-  font-size: 13.5px;
+  font-size: 14px;
   text-align: justify;
   letter-spacing: 0.9px;
   line-height: 20px;

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getGitHubRepos } from '../../../store/Actions/gitHubActions';
+import { FaGithub, FaHackerrank, FaCodepen } from 'react-icons/fa';
+import { AiFillCodeSandboxCircle } from 'react-icons/ai';
+import { MdOutlineFiberSmartRecord } from 'react-icons/md';
 import PresentationSection from '../../UI/PresentationSection/PresentationSection';
 import Heading from '../../UI/Heading/Heading';
 import Skills from '../../Skills/Skills';
@@ -10,6 +13,7 @@ import Github from '../../../Assets/Images/Skills/Github.png';
 import GithubLight from '../../../Assets/Images/Skills/GithubLight.png';
 import Loader from '../../UI/Loader/Loader';
 import RepoItem from '../../UI/RepoItem/RepoItem';
+import Badge from '../../UI/Badge/Badge';
 
 const AboutMe = () => {
   const [moveHeading, setMoveHeading] = useState(false);
@@ -77,12 +81,33 @@ const AboutMe = () => {
           framework. From Frontend to Backend, I mostly prefer to use and learn
           JavaScript-based technologies.
         </p>
-        <div>
-          <div>Github Bagde</div>
-          <div>CodePen Bagde</div>
-          <div>CodeSandbox Bagde</div>
-          <div>Smartr Badge</div>
-          <div>Hackerrank Badge</div>
+        <div className={classes.BagdeSection}>
+          <Badge
+            title='Github'
+            href='https://github.com/aytacg26'
+            logoIcon={<FaGithub />}
+          />
+          <Badge
+            title='Codepen'
+            href='https://codepen.io/aytacg26'
+            logoIcon={<FaCodepen />}
+          />
+          <Badge
+            title='CodeSandbox'
+            href='https://codesandbox.io/u/aytacg26_9067'
+            logoIcon={<AiFillCodeSandboxCircle />}
+          />
+          <Badge
+            title='Smartr'
+            href='https://www.smartr.me/public/profiles/aytac.guley'
+            logoIcon={<MdOutlineFiberSmartRecord />}
+            badgeColor='#57B4A9'
+          />
+          <Badge
+            title='Hackerrank'
+            href='https://www.hackerrank.com/aytacg26'
+            logoIcon={<FaHackerrank />}
+          />
         </div>
       </div>
 
