@@ -1,0 +1,16 @@
+.SkillsContainer {
+  padding: 4px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media (max-width: 840px) {
+  .SkillsContainer {
+    justify-content: center;
+    width: 100%;
+  }
+}

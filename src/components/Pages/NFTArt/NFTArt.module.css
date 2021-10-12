@@ -1,0 +1,8 @@
+.NFTArtContainer {
+  width: 100%;
+  max-width: 100vw;
+}
+
+.NFTArtContainer p {
+  color: rgb(160, 160, 160);
+}

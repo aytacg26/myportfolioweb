@@ -1,0 +1,29 @@
+/* h1 {
+  color: var(--header-color);
+  border-bottom: 1px solid #ccc;
+  margin: 10px 0;
+} */
+.HeadingContainer {
+  width: 100%;
+  max-width: 100vw;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+  letter-spacing: 2px;
+}
+
+.HeadingContainer h1 {
+  color: var(--header-color);
+}
+.HeadingContainer span {
+  height: 40px;
+  width: 15px;
+  background-color: #ccc;
+}
+
+@media (max-width: 600px) {
+  .HeadingContainer h1 {
+    font-size: 1.55em;
+  }
+}

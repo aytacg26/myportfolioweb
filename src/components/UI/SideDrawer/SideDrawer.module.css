@@ -1,0 +1,44 @@
+.SideDrawerContainer {
+  position: fixed;
+  left: 0;
+  top: 40px;
+  width: 40px;
+  height: calc(100vh - 40px);
+  padding: 15px 5px 10px 5px;
+  background-color: #424242;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--header-text-color);
+  box-shadow: 0 0 6px black;
+  flex-flow: column nowrap;
+  color: var(--header-text-color);
+  z-index: 30;
+}
+
+.SideDrawerContainer.Open {
+  width: 290px;
+}
+
+.SideDrawerContainer.OpenWithIcons {
+  width: 335px;
+}
+
+.ListItems {
+  width: 100%;
+}
+
+.MenuIconContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  border-top: 1px solid var(--header-text-color);
+  cursor: pointer;
+}
+
+.MenuIconContainer span {
+  font-size: 12px;
+  margin-left: 6px;
+  padding-top: 1px;
+}

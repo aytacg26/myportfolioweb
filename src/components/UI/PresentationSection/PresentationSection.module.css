@@ -1,0 +1,16 @@
+.PresentationSectionContainerRow,
+.PresentationSectionContainerColumn {
+  display: flex;
+  margin: 15px auto;
+  justify-content: center;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.PresentationSectionContainerRow {
+  flex-flow: row wrap;
+}
+
+.PresentationSectionContainerColumn {
+  flex-flow: column wrap;
+}
