@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { validateName, validateEmail } from '../../../Utils/Utils';
+import {
+  validateName,
+  validateEmail,
+  validateMessage,
+} from '../../../Utils/Utils';
 import { GiSelfLove } from 'react-icons/gi';
 import { ImLocation2 } from 'react-icons/im';
 import { MdPhoneAndroid, MdEmail } from 'react-icons/md';
@@ -17,33 +21,89 @@ const messages = [
 ];
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [isValidName, setIsValidName] = useState(false);
-  const [isValidEmail, setIsValidEmail] = useState(false);
-  const [isValidMessage, setIsValidMessage] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [isValidName, setIsValidName] = useState(true);
+  const [isValidEmail, setIsValidEmail] = useState(true);
+  const [isValidMessage, setIsValidMessage] = useState(true);
   const [contactHeading, setContactHeading] = useState(0);
+  const [messageSend, setMessageSend] = useState(false);
 
   const { darkMode } = useSelector((state) => state.mode);
 
-  const { name, email, message } = formData;
+  /*@TODO :
+    -check validation onBlur
+    
+    -validations must be false initially, check if user enters a input and leaves it empty
+    then run the error mechanism
+
+    -validation in entryHandlers will be dependent to another state, therefore
+    we need to use useReducer instead of multiple useStates and validation functions
+    must be used in enteryHandlers before setting validations to true.
+
+    - After completion of backend, connect this component to redux
+
+    - create a message send component and whenever message send successfully,
+    the form will be cleared, and for 6 seconds, message send component will take place
+    instead of ContactForm component.
+  */
 
   useEffect(() => {
     const headingIndex = Math.floor(Math.random() * 4);
     setContactHeading(headingIndex);
   }, []);
 
-  const formDataHandler = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({ ...prevState, [name]: value }));
+  useEffect(() => {
+    if (messageSend) {
+      setTimeout(() => {
+        setMessageSend(false);
+      }, 6000);
+    }
+  }, [messageSend]);
+
+  const nameEntryHandler = (e) => {
+    setName(e.target.value);
+    setIsValidName(true);
+  };
+  const emailEntryHandler = (e) => {
+    setEmail(e.target.value);
+    setIsValidEmail(true);
+  };
+  const messageEntryHandler = (e) => {
+    setMessage(e.target.value);
+    setIsValidMessage(true);
   };
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    //Validation
+    const validName = validateName(name);
+    const validEmail = validateEmail(email);
+    const validMessage = validateMessage(message);
+
+    if (validName && validEmail && validMessage.isValid) {
+      setIsValidEmail(true);
+      setIsValidMessage(true);
+      setIsValidName(true);
+
+      const message = { name, email, message: validMessage.message };
+
+      setName('');
+      setEmail('');
+      setMessage('');
+      setMessageSend(true);
+
+      console.log(message);
+    } else {
+      setIsValidName(validName);
+      setIsValidEmail(validEmail);
+      setIsValidMessage(validMessage.isValid);
+      console.log(validName);
+      console.log(validEmail);
+      console.log(validMessage);
+    }
   };
 
   return (
@@ -58,19 +118,29 @@ const Contact = () => {
       </div>
       <div className={classes.ContactSection}>
         <div>
-          <ContactForm
-            name={name}
-            email={email}
-            message={message}
-            nameHandler={formDataHandler}
-            emailHandler={formDataHandler}
-            messageHandler={formDataHandler}
-            onSubmit={formSubmitHandler}
-            isDarkMode={darkMode}
-            invalidMessage={isValidMessage}
-            invalidName={isValidName}
-            invalidEmail={isValidEmail}
-          />
+          {!messageSend && (
+            <ContactForm
+              name={name}
+              email={email}
+              message={message}
+              nameHandler={nameEntryHandler}
+              emailHandler={emailEntryHandler}
+              messageHandler={messageEntryHandler}
+              onSubmit={formSubmitHandler}
+              isDarkMode={darkMode}
+              validMessage={isValidMessage}
+              validName={isValidName}
+              validEmail={isValidEmail}
+            />
+          )}
+          {messageSend && (
+            <p>
+              You message send successfully, I will be in touch with you within
+              1000 years... create a success and/or error component, in case of
+              any server error, error will take place and this time, form
+              shouldn't be emptied!!
+            </p>
+          )}
         </div>
         <div className={classes.ContactDetailsContainer}>
           <div
