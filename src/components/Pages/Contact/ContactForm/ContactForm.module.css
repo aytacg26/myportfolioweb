@@ -1,0 +1,50 @@
+.MessageForm {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 100%;
+  position: relative;
+  margin-right: 20px;
+}
+
+.MessageForm input {
+  margin: 8px 0 5px 0;
+  padding: 7px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.MessageForm input:focus {
+  border: 1px solid yellowgreen;
+  box-shadow: 0 0 5px yellowgreen;
+}
+
+.MessageForm button {
+  padding: 6px;
+  border-radius: 5px;
+  border: 0 none;
+  cursor: pointer;
+  background-color: rgb(0, 102, 255);
+  color: #fff;
+  font-size: 1em;
+  transition: 0.25s ease-in-out;
+  transition-property: background-color;
+}
+
+.MessageForm button:hover {
+  background-color: rgb(3, 67, 187);
+}
+
+.MessageForm button.darkMode {
+  background: yellowgreen;
+}
+
+.MessageForm button.darkMode:hover {
+  background: rgb(104, 155, 2);
+}
+
+@media (max-width: 900px) {
+  .MessageForm {
+    margin: 0 5px;
+  }
+}

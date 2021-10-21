@@ -1,0 +1,122 @@
+.ContactContainer {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.Headings {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+.Headings h1 {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: var(--header-color);
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.Headings h3 {
+  margin-bottom: 4px;
+}
+
+.Headings h3,
+.Headings h5 {
+  color: var(--header-color);
+}
+
+.Headings.darkMode h3 {
+  color: #fff;
+}
+
+.Headings.darkMode h1 {
+  border-bottom: 1px solid yellowgreen;
+}
+
+.Headings.darkMode h1,
+.Headings.darkMode h5 {
+  color: var(--header-text-color);
+}
+
+.ContactSection {
+  display: flex;
+  width: 100%;
+
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.ContactDetailsContainer {
+  min-width: 380px;
+  max-width: 100%;
+  padding: 15px;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.ContactDetails {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 15px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #ccc;
+}
+
+.ContactDetails.darkMode {
+  border-bottom: 1px solid yellowgreen;
+}
+
+.ContactDataGroup {
+  width: 100%;
+
+  display: flex;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--header-text-color);
+}
+
+.Social {
+  width: 100%;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-around;
+  margin: 15px 0;
+}
+
+.Social a {
+  color: rgb(0, 102, 255);
+  font-size: 22px;
+}
+
+.Social.darkMode a {
+  color: yellowgreen;
+}
+
+@media (max-width: 900px) {
+  .ContactSection {
+    flex-flow: column;
+  }
+
+  .Headings h5 {
+    margin: 0 5px 4px 5px;
+    text-align: center;
+  }
+
+  .ContactDetailsContainer {
+    min-width: 280px;
+    max-width: 100vw;
+  }
+}
