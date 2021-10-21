@@ -9,10 +9,14 @@ const EntryCard = ({
   entryText,
   location,
   grade,
+  isDarkMode,
 }) => {
   return (
     <div className={classes.EntryCardContainer}>
-      <div className={classes.EntryHeader}>
+      <div
+        className={classes.EntryHeader}
+        style={{ color: isDarkMode ? '#fff' : '#000' }}
+      >
         <h2>{heading}</h2>
         {subHeading && <h4>{subHeading}</h4>}
       </div>
@@ -23,10 +27,10 @@ const EntryCard = ({
             <span>{grade}</span>
           </div>
         )}
-        {startYear && endYear && (
-          <div className={classes.EntryEntryDataGroup}>
+        {startYear && (
+          <div className={classes.EntryDataGroup}>
             <label>Years</label>
-            <span>{`${startYear} - ${endYear}`}</span>
+            <span>{`${startYear} - ${endYear ? endYear : 'current'}`}</span>
           </div>
         )}
         {location && (

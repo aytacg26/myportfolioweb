@@ -19,3 +19,49 @@
 .EntryDetails {
   display: flex;
 }
+
+.EntryDataGroup {
+  margin: 8px 8px 0 0;
+  font-size: 0.85em;
+  color: var(--header-text-color);
+}
+
+.EntryDataGroup label {
+  font-size: 0.95em;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.EntryDataGroup label:after {
+  content: ':';
+  padding-left: 4px;
+}
+
+.EntryDataGroup span {
+  font-size: 0.8em;
+}
+
+.EntryDataGroup span:after {
+  content: '|';
+  padding-left: 10px;
+}
+
+.EntryText p {
+  font-size: 0.78em;
+  margin: 8px 10px 5px 0;
+  color: var(--header-text-color);
+}
+
+@media (max-width: 600px) {
+  .EntryDetails {
+    flex-flow: column wrap;
+  }
+
+  .EntryHeader h2 {
+    font-size: 1.1em;
+  }
+
+  .EntryHeader h4 {
+    font-size: 0.95em;
+  }
+}
