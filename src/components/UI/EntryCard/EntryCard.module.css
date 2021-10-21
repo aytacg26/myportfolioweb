@@ -1,0 +1,21 @@
+.EntryCardContainer {
+  display: flex;
+  flex-flow: column;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.EntryHeader h2,
+.EntryHeader h4 {
+  margin-bottom: 4px;
+}
+
+.EntryHeader h4 {
+  color: var(--header-text-color);
+}
+
+.EntryDetails {
+  display: flex;
+}

@@ -1,64 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getGitHubRepos } from '../../../store/Actions/gitHubActions';
-import { FaGithub, FaHackerrank, FaCodepen } from 'react-icons/fa';
-import { AiFillCodeSandboxCircle } from 'react-icons/ai';
-import { MdOutlineFiberSmartRecord } from 'react-icons/md';
 import PresentationSection from '../../UI/PresentationSection/PresentationSection';
 import Heading from '../../UI/Heading/Heading';
 import Skills from '../../Skills/Skills';
+import PersonalSection from './AboutMeSections/PersonalSection';
+import AboutMeText from './AboutMeSections/AboutMeText';
 import classes from './AboutMe.module.css';
-import me from '../../../Assets/Images/aytac_guley.png';
+import ProfileBadges from './AboutMeSections/ProfileBadges';
 import Github from '../../../Assets/Images/Skills/Github.png';
 import GithubLight from '../../../Assets/Images/Skills/GithubLight.png';
 import Loader from '../../UI/Loader/Loader';
 import RepoItem from '../../UI/RepoItem/RepoItem';
-import Badge from '../../UI/Badge/Badge';
+import EntryCard from '../../UI/EntryCard/EntryCard';
 
 const AboutMe = () => {
-  const [moveHeading, setMoveHeading] = useState(false);
-  const [rotateImage, setRotateImage] = useState(false);
   const { mode, gitHub } = useSelector((state) => state);
   const { darkMode } = mode;
   const { repos, loading, error, errorMessage } = gitHub;
   const dispatch = useDispatch();
 
-  //Animations
-  useEffect(() => {
-    setMoveHeading(true);
-    const startRotate = setTimeout(() => {
-      setRotateImage(true);
-    }, 400);
-
-    return () => clearTimeout(startRotate);
-  }, []);
-
   //Fetch Data from GitHub API
   useEffect(() => {
-    dispatch(getGitHubRepos());
-  }, [dispatch]);
+    if (!repos) {
+      dispatch(getGitHubRepos());
+    }
+  }, [dispatch, repos]);
 
   return (
     <PresentationSection column>
       <Heading title='Aytaç GÜLEY' />
-      <div className={classes.AboutMeJob}>
-        <div className={`${classes.Me} ${rotateImage ? classes.Rotate : ''}`}>
-          <img src={me} alt='Aytac Guley' title='Aytac guley' />
-        </div>
+      <PersonalSection />
 
-        <div
-          className={`${classes.Headings} ${moveHeading ? classes.MoveIn : ''}`}
-        >
-          <h3>
-            <span className={classes.Huge}>F</span>rontend{' '}
-            <span className={classes.Huge}>R</span>eact{' '}
-            <span className={classes.Huge}>D</span>eveloper &amp;{' '}
-            <span className={classes.Huge}>J</span>avaScript Enthusiast
-          </h3>
-          <h3>Blender 3D Artist</h3>
-          <h4>Nicosia, Cyprus</h4>
-        </div>
-      </div>
       <div className={classes.AboutMeSkills}>
         <Heading title='Skills' />
         <Skills isDarkMode={darkMode} />
@@ -66,49 +39,8 @@ const AboutMe = () => {
 
       <div className={classes.Section}>
         <Heading title='About Me' />
-        <p>
-          <span className={classes.Huge}>S</span>ince 2013, I have been studying
-          computer science and programming languages. My programming languages
-          journey started with C++, then I moved to python and C#. In my
-          university years, I was using HTML, CSS, and JavaScript for simple
-          landing websites and from those years and because of the initial
-          nature of JavaScript, I have never think JS as a programming language
-          to create something but it was just a language to create interactivity
-          and simple animations on the web. After my first project in 2014, I
-          realized that JavaScript is more than that and started to study it in
-          more detail. Currently, I am a JavaScript Enthusiast and I love
-          working on any kind of JavaScript-based library, package, and
-          framework. From Frontend to Backend, I mostly prefer to use and learn
-          JavaScript-based technologies.
-        </p>
-        <div className={classes.BagdeSection}>
-          <Badge
-            title='Github'
-            href='https://github.com/aytacg26'
-            logoIcon={<FaGithub />}
-          />
-          <Badge
-            title='Codepen'
-            href='https://codepen.io/aytacg26'
-            logoIcon={<FaCodepen />}
-          />
-          <Badge
-            title='CodeSandbox'
-            href='https://codesandbox.io/u/aytacg26_9067'
-            logoIcon={<AiFillCodeSandboxCircle />}
-          />
-          <Badge
-            title='Smartr'
-            href='https://www.smartr.me/public/profiles/aytac.guley'
-            logoIcon={<MdOutlineFiberSmartRecord />}
-            badgeColor='#57B4A9'
-          />
-          <Badge
-            title='Hackerrank'
-            href='https://www.hackerrank.com/aytacg26'
-            logoIcon={<FaHackerrank />}
-          />
-        </div>
+        <AboutMeText />
+        <ProfileBadges />
       </div>
 
       <div className={classes.Section}>
@@ -152,6 +84,22 @@ const AboutMe = () => {
 
       <div className={classes.Section}>
         <Heading title='Education' />
+        <EntryCard
+          heading='Cyprus International University'
+          subHeading='Management of Information Systems'
+          startYear='2003'
+          endYear='2005'
+          grade='3.89/4.00'
+          location='Nicosia, Cyprus'
+        />
+        <EntryCard
+          heading='Eastern Mediterranean University'
+          subHeading='Industrial Engineering'
+          startYear='1997'
+          endYear='2002'
+          grade='3.14/4.00'
+          location='Famagusta, Cyprus'
+        />
       </div>
 
       <div className={classes.Section}>
@@ -162,3 +110,12 @@ const AboutMe = () => {
 };
 
 export default AboutMe;
+/**
+ *   heading,
+  subHeading,
+  startYear,
+  endYear,
+  entryText,
+  location,
+  grade,
+ */
