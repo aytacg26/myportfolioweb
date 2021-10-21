@@ -108,3 +108,118 @@ export const validateEmail = (email) => {
 
   return regex.test(email);
 };
+
+const encodeText = (text) => {
+  //max size will be 600 characters
+  let encodedText = '';
+
+  text.split('').forEach((char) => {
+    let encodedChar = '';
+
+    switch (char) {
+      case '<':
+        encodedChar = '&lt;';
+        break;
+      case '>':
+        encodedChar = '&gt;';
+        break;
+
+      case '&':
+        encodedChar = '&amp;';
+        break;
+
+      case '"':
+        encodedChar = '&quot;';
+        break;
+
+      case "'":
+        encodedChar = '&apos;';
+        break;
+
+      case '£':
+        encodedChar = '&pound;';
+        break;
+
+      case '€':
+        encodedChar = '&euro;';
+        break;
+
+      case '%':
+        encodedChar = '&percnt;';
+        break;
+
+      case '(':
+        encodedChar = '&lpar;';
+        break;
+
+      case ')':
+        encodedChar = '&rpar;';
+        break;
+
+      case '{':
+        encodedChar = '&lbrace;';
+        break;
+
+      case '}':
+        encodedChar = '&rbrace;';
+        break;
+
+      case '@':
+        encodedChar = '&commat;';
+        break;
+
+      case '$':
+        encodedChar = '&dollar;';
+        break;
+
+      case '?':
+        encodedChar = '&quest;';
+        break;
+
+      case '=':
+        encodedChar = '&equals;';
+        break;
+
+      case '/':
+        encodedChar = '&sol;';
+        break;
+
+      case ',':
+        encodedChar = '&comma;';
+        break;
+
+      case '.':
+        encodedChar = '&period;';
+        break;
+
+      case '!':
+        encodedChar = '&excl;';
+        break;
+
+      case '[':
+        encodedChar = '&lbrack;';
+        break;
+
+      case ']':
+        encodedChar = '&rbrack;';
+        break;
+
+      default:
+        encodedChar = char;
+    }
+
+    encodedText += encodedChar;
+  });
+
+  return encodedText;
+};
+
+export const validateMessage = (message) => {
+  if (message.trim().length > 4 && message.trim().length <= 600) {
+    const encodedMessage = encodeText(message);
+
+    return { isValid: true, message: encodedMessage };
+  }
+
+  return { isValid: false, message: '' };
+};
