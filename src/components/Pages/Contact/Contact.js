@@ -47,6 +47,8 @@ const Contact = () => {
     - create a message send component and whenever message send successfully,
     the form will be cleared, and for 6 seconds, message send component will take place
     instead of ContactForm component.
+
+    -Divide this component into multiple parts if it is possible, it seems a little bit long!
   */
 
   useEffect(() => {
@@ -208,14 +210,3 @@ const Contact = () => {
 };
 
 export default Contact;
-/**
-  name,
-  email,
-  message,
-  nameHandler,
-  emailHandler,
-  messageHandler,
-  invalidMessage,
-  invalidName,
-  invalidEmail,
- */
