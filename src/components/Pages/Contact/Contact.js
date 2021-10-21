@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { validateName, validateEmail } from '../../../Utils/Utils';
 import { GiSelfLove } from 'react-icons/gi';
@@ -9,6 +9,13 @@ import { BsFacebook, BsInstagram, BsTwitter, BsLinkedin } from 'react-icons/bs';
 import ContactForm from './ContactForm/ContactForm';
 import classes from './Contact.module.css';
 
+const messages = [
+  'I like to create things with fun, open minded people. Feel free to say hello!',
+  'Whether you have a question about me or anything else, I will be happy to answer!',
+  "Let's work together to create game-changing experiences.",
+  "You're about to take the first step towards contacting me! Here are few ways to to reach out to me.",
+];
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -18,10 +25,16 @@ const Contact = () => {
   const [isValidName, setIsValidName] = useState(false);
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidMessage, setIsValidMessage] = useState(false);
+  const [contactHeading, setContactHeading] = useState(0);
 
   const { darkMode } = useSelector((state) => state.mode);
 
   const { name, email, message } = formData;
+
+  useEffect(() => {
+    const headingIndex = Math.floor(Math.random() * 4);
+    setContactHeading(headingIndex);
+  }, []);
 
   const formDataHandler = (e) => {
     const { name, value } = e.target;
@@ -41,10 +54,7 @@ const Contact = () => {
           I'd <GiSelfLove style={{ color: darkMode && 'red' }} /> to be in
           touch!
         </h3>
-        <h5>
-          I like to create things with fun, open minded people. Feel free to say
-          hello!
-        </h5>
+        <h5>{messages[contactHeading]}</h5>
       </div>
       <div className={classes.ContactSection}>
         <div>
