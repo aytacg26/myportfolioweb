@@ -39,7 +39,7 @@ const AboutMe = () => {
 
       <div className={classes.Section}>
         <Heading title='About Me' />
-        <AboutMeText />
+        <AboutMeText isDarkMode={darkMode} />
         <ProfileBadges />
       </div>
 
@@ -91,6 +91,7 @@ const AboutMe = () => {
           endYear='2005'
           grade='3.89/4.00'
           location='Nicosia, Cyprus'
+          isDarkMode={darkMode}
         />
         <EntryCard
           heading='Eastern Mediterranean University'
@@ -99,11 +100,50 @@ const AboutMe = () => {
           endYear='2002'
           grade='3.14/4.00'
           location='Famagusta, Cyprus'
+          isDarkMode={darkMode}
         />
       </div>
-
       <div className={classes.Section}>
-        <Heading title='Certificates' />
+        <Heading title='Experience' />
+        <EntryCard
+          heading='Provident Fund'
+          subHeading='Frontend Developer'
+          startYear='04/2014'
+          location='Nicosia, Cyprus'
+          entryText='Mainly, responsible from the frontend designs of the website, e-services for employers and e-services for
+          employees and project presentation website. In this time period, I have completed all projects before the
+          given deadline dates. For 3 of the projects, I have used Javascript, JQuery and ASP.NET WebApi &amp;
+          ASP.NET MVC. As desktop projects, I have completed 3 projects which has increased the efficiency and
+          work performance of inspection department of provident fund.'
+          isDarkMode={darkMode}
+        />
+        <EntryCard
+          heading='Semka Co. Ltd'
+          subHeading='Marketing Personnel'
+          startYear='12/2010'
+          endYear='05/2011'
+          location='Nicosia, Cyprus'
+          entryText='I was responsible from solving problems and gathering requests of the customers in Famagusta, apart from
+          existing customers, I was responsible from finding new customers and attending meetings with the construction companies 
+          of new projects. '
+        />
+        <EntryCard
+          heading='Özerk Co. Ltd'
+          subHeading='Branch Manager'
+          startYear='06/2010'
+          endYear='11/2010'
+          location='Nicosia, Cyprus'
+          entryText='I was responsible from assessing budget and stock plans and management of branch personnal'
+        />
+        <EntryCard
+          heading='YAR Ltd'
+          subHeading='Import Analyst'
+          startYear='05/2009'
+          endYear='05/2010'
+          entryText='Assited compliance department in performing internal audits of processes and systems to facilitate
+          importation and exportation of products. Creating and transmitting accurate documentation to gorvenment
+          agencies for all import activities.'
+        />
       </div>
     </PresentationSection>
   );
