@@ -1,6 +1,7 @@
 import rarible from '../Assets/Images/rarible.png';
 import openSea from '../Assets/Images/Logomark-Blue.png';
 import cgtrader from '../Assets/Images/cgtrader-300x300.png';
+import { publish } from '../Types/UtilFunctionTypes';
 
 const INVALID_CHARS = [
   '&',
@@ -34,7 +35,7 @@ const INVALID_CHARS = [
   ']',
 ];
 
-const hasInvalidChars = (str) => {
+const hasInvalidChars = (str: string) => {
   const strArr = str.split('');
 
   for (const char of strArr) {
@@ -46,8 +47,13 @@ const hasInvalidChars = (str) => {
   return false;
 };
 
-export const getPublishDetails = (publishedOn) => {
-  let publishDetails;
+export const getPublishDetails = (publishedOn: publish) => {
+  let publishDetails: {
+    image: string;
+    buttonColor: string;
+    textColor: string;
+    buttonText: string;
+  };
 
   if (publishedOn.toLowerCase() === 'rarible') {
     publishDetails = {
@@ -82,7 +88,7 @@ export const getPublishDetails = (publishedOn) => {
   return publishDetails;
 };
 
-export const formatDate = (date) => {
+export const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString('en-US', {
     month: 'long',
     year: 'numeric',
@@ -90,7 +96,7 @@ export const formatDate = (date) => {
   });
 };
 
-export const validateName = (name) => {
+export const validateName = (name: string) => {
   if (
     name.trim().length >= 2 &&
     name.trim().length <= 35 &&
@@ -102,14 +108,14 @@ export const validateName = (name) => {
   return false;
 };
 
-export const validateEmail = (email) => {
+export const validateEmail = (email: string) => {
   //eslint-disable-next-line
   const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   return regex.test(email);
 };
 
-const encodeText = (text) => {
+const encodeText = (text: string) => {
   //max size will be 600 characters
   let encodedText = '';
 
@@ -214,7 +220,7 @@ const encodeText = (text) => {
   return encodedText;
 };
 
-export const validateMessage = (message) => {
+export const validateMessage = (message: string) => {
   if (message.trim().length > 4 && message.trim().length <= 600) {
     const encodedMessage = encodeText(message);
 

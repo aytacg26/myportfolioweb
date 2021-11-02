@@ -1,5 +1,17 @@
 import React from 'react';
-import classes from './EntryCard.module.css';
+import classes from './EntryCard.module.scss';
+import PropTypes from 'prop-types';
+
+interface IProps {
+  heading: string;
+  subHeading?: string;
+  startYear?: number;
+  endYear?: number;
+  entryText?: string;
+  location?: string;
+  grade?: string;
+  isDarkMode: boolean;
+}
 
 const EntryCard = ({
   heading,
@@ -10,7 +22,7 @@ const EntryCard = ({
   location,
   grade,
   isDarkMode,
-}) => {
+}: IProps) => {
   return (
     <div className={classes.EntryCardContainer}>
       <div
@@ -50,3 +62,14 @@ const EntryCard = ({
 };
 
 export default EntryCard;
+
+EntryCard.propTypes = {
+  heading: PropTypes.string.isRequired,
+  subHeading: PropTypes.string,
+  startYear: PropTypes.number,
+  endYear: PropTypes.number,
+  entryText: PropTypes.string,
+  location: PropTypes.string,
+  grade: PropTypes.string,
+  isDarkMode: PropTypes.bool.isRequired,
+};

@@ -1,9 +1,11 @@
+@import '../../../scss/variables.scss';
+
 .Badge {
   text-decoration: none;
   display: flex;
   padding: 5px 10px;
   width: 150px;
-  background-color: var(--header-color);
+  background-color: $header-color;
   margin: 4px;
   border-radius: 4px;
   color: #fff;

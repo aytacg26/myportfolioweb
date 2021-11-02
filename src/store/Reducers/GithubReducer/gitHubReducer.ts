@@ -1,8 +1,6 @@
-import {
-  GITHUB_REPO_REQUEST_FAIL,
-  GITHUB_REPO_REQUEST,
-  GITHUB_REPO_REQUEST_SUCCESS,
-} from '../../types';
+import { gitHubAction } from '../../../Types/ReduxTypes';
+import { GithubType } from '../../types';
+import { IGitHubState } from '../../../Interfaces/IState';
 
 const initState = {
   repos: null,
@@ -11,20 +9,23 @@ const initState = {
   errorMessage: null,
 };
 
-const gitHubReducer = (state = initState, action) => {
+const gitHubReducer = (
+  state: IGitHubState = initState,
+  action: gitHubAction
+) => {
   const { type, payload } = action;
 
   switch (type) {
-    case GITHUB_REPO_REQUEST:
+    case GithubType.GITHUB_REPO_REQUEST:
       return { ...state, loading: true, error: false, errorMessage: null };
-    case GITHUB_REPO_REQUEST_SUCCESS:
+    case GithubType.GITHUB_REPO_REQUEST_SUCCESS:
       return {
         repos: payload,
         loading: false,
         error: false,
         errorMessage: null,
       };
-    case GITHUB_REPO_REQUEST_FAIL:
+    case GithubType.GITHUB_REPO_REQUEST_FAIL:
       return {
         ...state,
         loading: false,

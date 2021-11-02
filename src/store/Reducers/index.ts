@@ -2,7 +2,9 @@ import { combineReducers } from 'redux';
 import modeReducer from './ModeReducer/modeReducer';
 import gitHubReducer from './GithubReducer/gitHubReducer';
 
-export default combineReducers({
+const rootReducer = combineReducers({
   mode: modeReducer,
   gitHub: gitHubReducer,
 });
+
+export default rootReducer;

@@ -23,3 +23,9 @@
   font-size: 0.85em;
   border-bottom: 1px solid var(--header-text-color);
 }
+
+@media (max-width: 600px) {
+  .HeaderMenuSwitch {
+    display: none;
+  }
+}

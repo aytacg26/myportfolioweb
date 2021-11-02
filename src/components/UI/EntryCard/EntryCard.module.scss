@@ -1,3 +1,5 @@
+@import '../../../scss/variables.scss';
+
 .EntryCardContainer {
   display: flex;
   flex-flow: column;
@@ -13,7 +15,7 @@
 }
 
 .EntryHeader h4 {
-  color: var(--header-text-color);
+  color: $header-text-color;
 }
 
 .EntryDetails {
@@ -24,26 +26,26 @@
   margin: 8px 8px 0 0;
   font-size: 0.85em;
   color: var(--header-text-color);
-}
 
-.EntryDataGroup label {
-  font-size: 0.95em;
-  margin-right: 5px;
-  font-weight: bold;
-}
+  label {
+    font-size: 0.95em;
+    margin-right: 5px;
+    font-weight: bold;
 
-.EntryDataGroup label:after {
-  content: ':';
-  padding-left: 4px;
-}
+    &:after {
+      content: ':';
+      padding-left: 4px;
+    }
+  }
 
-.EntryDataGroup span {
-  font-size: 0.8em;
-}
+  span {
+    font-size: 0.8em;
 
-.EntryDataGroup span:after {
-  content: '|';
-  padding-left: 10px;
+    &:after {
+      content: '|';
+      padding-left: 10px;
+    }
+  }
 }
 
 .EntryText p {

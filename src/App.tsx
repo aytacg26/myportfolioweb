@@ -1,7 +1,7 @@
 import React, { Fragment, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import HomePage from './components/Pages/Home/HomePage';
 import NFTArt from './components/Pages/NFTArt/NFTArt';
 import AboutMe from './components/Pages/About/AboutMe';
@@ -13,11 +13,12 @@ import Settings from './components/UI/Settings/Settings';
 import { closeAllMenus } from './store/Actions/modeActions';
 import Footer from './components/UI/Footer/Footer';
 import ItemPage from './components/Pages/ItemPage/ItemPage';
+import { IRootState } from './Interfaces/IState';
 
 const App = () => {
   const dispatch = useDispatch();
   const { openSettings, darkMode, toggleDrawer } = useSelector(
-    (state) => state.mode
+    (state: IRootState) => state.mode
   );
   const appRef = useRef();
 
