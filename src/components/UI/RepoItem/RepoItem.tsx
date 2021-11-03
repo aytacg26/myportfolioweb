@@ -1,16 +1,29 @@
-import React from 'react';
-import classes from './RepoItem.module.css';
+import classes from './RepoItem.module.scss';
 import { MdOutlinePublic } from 'react-icons/md';
 import { formatDate } from '../../../Utils/Utils';
+import PropTypes from 'prop-types';
 
-const RepoItem = ({ repo }) => {
+interface IProps {
+  repo: {
+    id: string;
+    html_url: string;
+    name: string;
+    language: string;
+    pushed_at: string;
+    visibility: string;
+    [key: string]: any;
+  };
+}
+
+//TODO : Refactor this Component
+const RepoItem = ({ repo }: IProps) => {
   return (
     <li key={repo.id} className={classes.ListItem}>
       <a
         href={repo.html_url}
         target='_blank'
         rel='noopener noreferrer'
-        alt={repo.name}
+        title={repo.name}
       >
         <div className={classes.RepoContainer}>
           <div className={classes.RepoDataGroup}>
@@ -35,3 +48,18 @@ const RepoItem = ({ repo }) => {
 };
 
 export default RepoItem;
+
+RepoItem.propTypes = {
+  repo: PropTypes.object.isRequired,
+};
+
+RepoItem.defaultProps = {
+  repo: {
+    id: '0000000001',
+    html_url: '',
+    name: '',
+    language: '',
+    pushed_at: '',
+    visibility: '',
+  },
+};

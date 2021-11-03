@@ -1,12 +1,21 @@
-import React from 'react';
-import classes from './Carousel.module.css';
+import React, { DragEvent } from 'react';
+import classes from './Carousel.module.scss';
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from 'react-icons/bs';
 
-const handleDragStart = (e) => e.preventDefault();
-const Carousel = ({ itemDetails }) => {
+import PropTypes from 'prop-types';
+
+interface carouselArg {
+  itemDetails: {
+    images: { id: string; url: string }[];
+    title: string;
+  };
+}
+
+const handleDragStart = (e: DragEvent) => e.preventDefault();
+const Carousel = ({ itemDetails }: carouselArg) => {
   const items = itemDetails.images.map((item) => (
     <img
       src={item.url}
@@ -53,3 +62,7 @@ const Carousel = ({ itemDetails }) => {
 };
 
 export default Carousel;
+
+Carousel.propTypes = {
+  itemDetails: PropTypes.object.isRequired,
+};

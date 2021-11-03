@@ -1,8 +1,15 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import classes from './ListItem.module.css';
+import classes from './ListItem.module.scss';
 
-const ListItem = ({ link, itemText, icon, showText, onClick }) => {
+interface IProps {
+  link: string;
+  itemText: string;
+  icon: JSX.Element; //Attention : this can be a React Element, will be corrected
+  showText: boolean;
+  onClick: () => void;
+}
+
+const ListItem = ({ link, itemText, icon, showText, onClick }: IProps) => {
   const location = useLocation();
   let listContainerClass;
 

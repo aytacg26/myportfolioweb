@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 interface IProps {
   onSiteLink?: string;
   outLink: string;
-  publishedOn?: publish;
+  publishedOn: publish;
 }
 
 const ActionButtons = ({ onSiteLink, outLink, publishedOn }: IProps) => {
@@ -47,5 +47,5 @@ export default ActionButtons;
 ActionButtons.propTypes = {
   onSiteLink: PropTypes.string,
   outLink: PropTypes.string.isRequired,
-  publishedOn: PropTypes.string,
+  publishedOn: PropTypes.string.isRequired,
 };

@@ -1,3 +1,5 @@
+@import '../../../scss/variables.scss';
+
 .headerContainer {
   display: flex;
   height: 40px;
@@ -9,7 +11,7 @@
   justify-content: space-between;
   padding: 10px 25px;
   z-index: 999;
-  background-color: var(--header-color);
+  background-color: $header-color;
   max-width: 100vw;
 
   a {
@@ -20,7 +22,7 @@
   h2 {
     margin-left: 8px;
     font-size: 1.08em;
-    color: var(--header-text-color);
+    color: $header-text-color;
     font-family: 'Italianno', cursive;
     letter-spacing: 2px;
     display: inline-block;
@@ -63,7 +65,7 @@
   align-items: center;
   justify-content: space-around;
   font-size: 1.1em;
-  color: var(--header-text-color);
+  color: $header-text-color;
   cursor: pointer;
   position: relative;
 }

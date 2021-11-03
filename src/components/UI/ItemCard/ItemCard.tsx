@@ -1,10 +1,24 @@
 import React from 'react';
-import classes from './ItemCard.module.css';
+import classes from './ItemCard.module.scss';
 import { getPublishDetails } from '../../../Utils/Utils';
 import { FaHeart, FaRegHeart, FaComment } from 'react-icons/fa';
 import NoImage from '../../../Assets/Images/NoImage.png';
 import ActionButtons from '../ActionButtons/ActionButtons';
+import { publish } from '../../../Types/UtilFunctionTypes';
 
+interface IProps {
+  id: string;
+  title: string;
+  description: string;
+  link: string;
+  thumbnail: string;
+  images: string[];
+  likes: {}[]; //TODO : after creation of likes document, recreate this type, it will be an object array
+  comments: {}[]; //TODO : after creation of comments document, recreate this type
+  publishedOn: publish; //TODO : change this to publish type or create an publishedOn enum for all publishedOn props
+}
+
+//TODO: Try to refactor this component
 const ItemCard = ({
   id,
   title,
@@ -15,8 +29,8 @@ const ItemCard = ({
   likes,
   comments,
   publishedOn,
-}) => {
-  let desc;
+}: IProps) => {
+  let desc = '';
   if (description) {
     desc =
       description.length <= 100

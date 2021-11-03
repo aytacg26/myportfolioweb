@@ -78,10 +78,10 @@ export const getPublishDetails = (publishedOn: publish) => {
     };
   } else {
     publishDetails = {
-      image: null,
-      buttonColor: null,
-      textColor: null,
-      buttonText: null,
+      image: '',
+      buttonColor: '',
+      textColor: '',
+      buttonText: '',
     };
   }
 
@@ -89,11 +89,15 @@ export const getPublishDetails = (publishedOn: publish) => {
 };
 
 export const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString('en-US', {
-    month: 'long',
-    year: 'numeric',
-    day: '2-digit',
-  });
+  if (date !== '') {
+    return new Date(date).toLocaleDateString('en-US', {
+      month: 'long',
+      year: 'numeric',
+      day: '2-digit',
+    });
+  }
+
+  return '';
 };
 
 export const validateName = (name: string) => {

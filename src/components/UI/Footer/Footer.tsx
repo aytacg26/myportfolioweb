@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../../Assets/Images/dKlassix_logoX.png';
-import classes from './Footer.module.css';
-import { Link } from 'react-router-dom';
+import classes from './Footer.module.scss';
+import MenuTextLinks from '../MenuTextLinks/MenuTextLinks';
 import SocialIcon from './SocialIcon/SocialIcon';
 import instagram from '../../../Assets/Images/instagram.png';
 import facebook from '../../../Assets/Images/facebook.png';
@@ -42,11 +42,7 @@ const Footer = () => {
         </div>
       </Fade>
       <div className={classes.Links}>
-        <Link to='/'>Home</Link>
-        <Link to='/nft-art'>NFT Art</Link>
-        <Link to='/web-portfolio'>Web Portfolio</Link>
-        <Link to='/about'>About Me</Link>
-        <Link to='/contact'>Contact Me</Link>
+        <MenuTextLinks />
       </div>
       <div className={classes.copyRight}>
         &copy; {year} Aytac GULEY, Nicosia, Cyprus, All rights reserved.

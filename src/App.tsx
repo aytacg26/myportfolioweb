@@ -20,7 +20,7 @@ const App = () => {
   const { openSettings, darkMode, toggleDrawer } = useSelector(
     (state: IRootState) => state.mode
   );
-  const appRef = useRef();
+  const appRef = useRef<HTMLDivElement>(null);
 
   const screenClickHandler = () => {
     if (openSettings || toggleDrawer) {

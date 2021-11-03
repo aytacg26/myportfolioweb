@@ -1,6 +1,6 @@
 import { ModeType } from '../types';
 import { AnyAction } from 'redux';
-import { IModeState } from '../../Interfaces/IState';
+import { IRootState } from '../../Interfaces/IState';
 import { ThunkDispatch } from 'redux-thunk';
 
 const setDarkMode = () => {
@@ -26,10 +26,12 @@ const switchHeaderMenu = () => {
 const closeAllMenus =
   () =>
   (
-    dispatch: ThunkDispatch<void, IModeState, AnyAction>,
-    getState: () => IModeState
+    dispatch: ThunkDispatch<void, IRootState, AnyAction>,
+    getState: () => IRootState
   ) => {
-    const { openSettings, toggleDrawer } = getState();
+    const {
+      mode: { openSettings, toggleDrawer },
+    } = getState();
 
     if (openSettings || toggleDrawer) {
       dispatch({ type: ModeType.CLOSE_ALL });

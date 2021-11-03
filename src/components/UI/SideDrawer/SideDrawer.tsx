@@ -1,48 +1,19 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ListItem from '../ListItem/ListItem';
-
-import classes from './SideDrawer.module.css';
-import { FaHome, FaWindowClose } from 'react-icons/fa';
+import classes from './SideDrawer.module.scss';
+import { FaWindowClose } from 'react-icons/fa';
 import { HiOutlineMenu } from 'react-icons/hi';
-import { BiNetworkChart } from 'react-icons/bi';
-import { GiSpiderWeb } from 'react-icons/gi';
-import { BsInfoLg } from 'react-icons/bs';
-import { AiOutlineMail } from 'react-icons/ai';
+import links from '../../../Data/MenuData';
+import { IRootState } from '../../../Interfaces/IState';
 import {
   setToggleDrawer,
   closeAllMenus,
 } from '../../../store/Actions/modeActions';
 
-const menuItems = [
-  { id: 'menu-item-0001', text: 'Home', icon: <FaHome />, link: '/' },
-  {
-    id: 'menu-item-0002',
-    text: 'NFT Art',
-    icon: <BiNetworkChart />,
-    link: '/nft-art',
-  },
-  {
-    id: 'menu-item-0003',
-    text: 'Web Portfolio',
-    icon: <GiSpiderWeb />,
-    link: '/web-portfolio',
-  },
-  {
-    id: 'menu-item-0004',
-    text: 'About Me',
-    icon: <BsInfoLg />,
-    link: '/about',
-  },
-  {
-    id: 'menu-item-0005',
-    text: 'Contact Me',
-    icon: <AiOutlineMail />,
-    link: '/contact',
-  },
-];
-
 const SideDrawer = () => {
-  const { toggleDrawer, leftMenu } = useSelector((state) => state.mode);
+  const { toggleDrawer, leftMenu } = useSelector(
+    (state: IRootState) => state.mode
+  );
   const dispatch = useDispatch();
   const sideDrawerClass = toggleDrawer
     ? `${classes.SideDrawerContainer} ${classes.Open}`
@@ -54,7 +25,7 @@ const SideDrawer = () => {
       style={{ left: leftMenu ? 0 : toggleDrawer ? 0 : -45 }}
     >
       <div className={classes.ListItems}>
-        {menuItems.map((item) => (
+        {links.map((item) => (
           <ListItem
             key={item.id}
             link={item.link}
