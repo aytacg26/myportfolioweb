@@ -5,6 +5,7 @@ import { FaHeart, FaRegHeart, FaComment } from 'react-icons/fa';
 import NoImage from '../../../Assets/Images/NoImage.png';
 import ActionButtons from '../ActionButtons/ActionButtons';
 import { publish } from '../../../Types/UtilFunctionTypes';
+import PropTypes from 'prop-types';
 
 interface IProps {
   id: string;
@@ -85,3 +86,17 @@ const ItemCard = ({
 };
 
 export default ItemCard;
+
+ItemCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  link: PropTypes.string.isRequired,
+  thumbnail: PropTypes.string.isRequired,
+  images: PropTypes.arrayOf(PropTypes.string),
+  likes: PropTypes.arrayOf(PropTypes.object),
+  comments: PropTypes.arrayOf(PropTypes.object),
+  publishedOn: PropTypes.string.isRequired,
+};
+
+//Create defaults for some of the props which are required to not to break the app.
