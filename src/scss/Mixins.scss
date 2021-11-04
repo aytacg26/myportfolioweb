@@ -1,0 +1,28 @@
+@mixin displayFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin formElementFocus {
+  border: 1px solid yellowgreen;
+  -webkit-box-shadow: 0 0 4px yellowgreen;
+  box-shadow: 0 0 4px yellowgreen;
+}
+
+@mixin formElementInvalid {
+  border: 1px solid rgba(255, 42, 42, 0.6) !important;
+  background-color: rgba(255, 42, 42, 0.6);
+}
+
+@mixin widthMaxContent {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+@mixin heightMaxContent {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}

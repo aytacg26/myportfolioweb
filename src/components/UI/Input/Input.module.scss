@@ -1,0 +1,21 @@
+@import '../../../scss/Mixins.scss';
+
+input {
+  margin: 8px 0 5px 0;
+  padding: 7px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+
+  &:focus {
+    @include formElementFocus;
+  }
+
+  .invalidInput {
+    @include formElementInvalid;
+
+    &:focus {
+      box-shadow: 0 0 6px red !important;
+    }
+  }
+}

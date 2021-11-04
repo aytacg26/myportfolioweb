@@ -2,17 +2,10 @@ import classes from './RepoItem.module.scss';
 import { MdOutlinePublic } from 'react-icons/md';
 import { formatDate } from '../../../Utils/Utils';
 import PropTypes from 'prop-types';
+import { repoGitHub } from '../../../Types/ComponentPropTypes';
 
 interface IProps {
-  repo: {
-    id: string;
-    html_url: string;
-    name: string;
-    language: string;
-    pushed_at: string;
-    visibility: string;
-    [key: string]: any;
-  };
+  repo: repoGitHub;
 }
 
 //TODO : Refactor this Component

@@ -3,6 +3,9 @@ import { BiNetworkChart } from 'react-icons/bi';
 import { GiSpiderWeb } from 'react-icons/gi';
 import { BsInfoLg } from 'react-icons/bs';
 import { AiOutlineMail } from 'react-icons/ai';
+import { FaGithub, FaHackerrank, FaCodepen } from 'react-icons/fa';
+import { AiFillCodeSandboxCircle } from 'react-icons/ai';
+import { MdOutlineFiberSmartRecord } from 'react-icons/md';
 
 const links = Object.freeze([
   {
@@ -37,35 +40,42 @@ const links = Object.freeze([
   },
 ]);
 
-export default links;
-
-/**
-   * const menuItems = [
-  { id: 'menu-item-0001', text: 'Home', icon: <FaHome />, link: '/' },
+export const badgeData = [
   {
-    id: 'menu-item-0002',
-    text: 'NFT Art',
-    icon: <BiNetworkChart />,
-    link: '/nft-art',
+    id: 'badge-data-0001',
+    title: 'GitHub',
+    href: 'https://github.com/aytacg26',
+    logoIcon: <FaGithub />,
+    badgeColor: '',
   },
   {
-    id: 'menu-item-0003',
-    text: 'Web Portfolio',
-    icon: <GiSpiderWeb />,
-    link: '/web-portfolio',
+    id: 'badge-data-0002',
+    title: 'Codepen',
+    href: 'https://codepen.io/aytacg26',
+    logoIcon: <FaCodepen />,
+    badgeColor: '',
   },
   {
-    id: 'menu-item-0004',
-    text: 'About Me',
-    icon: <BsInfoLg />,
-    link: '/about',
+    id: 'badge-data-0003',
+    title: 'CodeSandbox',
+    href: 'https://codesandbox.io/u/aytacg26_9067',
+    logoIcon: <AiFillCodeSandboxCircle />,
+    badgeColor: '',
   },
   {
-    id: 'menu-item-0005',
-    text: 'Contact Me',
-    icon: <AiOutlineMail />,
-    link: '/contact',
+    id: 'badge-data-0004',
+    title: 'Smartr',
+    href: 'https://www.smartr.me/public/profiles/aytac.guley',
+    logoIcon: <MdOutlineFiberSmartRecord />,
+    badgeColor: '#57B4A9',
+  },
+  {
+    id: 'badge-data-0005',
+    title: 'Hackerrank',
+    href: 'https://www.hackerrank.com/aytacg26',
+    logoIcon: <FaHackerrank />,
+    badgeColor: '',
   },
 ];
 
-   */
+export default links;

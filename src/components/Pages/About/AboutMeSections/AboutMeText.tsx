@@ -1,7 +1,12 @@
 import React from 'react';
-import classes from '../AboutMe.module.css';
+import classes from '../AboutMe.module.scss';
+import PropTypes from 'prop-types';
 
-const AboutMeText = ({ isDarkMode }) => {
+interface IProps {
+  isDarkMode?: boolean;
+}
+
+const AboutMeText = ({ isDarkMode }: IProps) => {
   return (
     <p style={{ color: isDarkMode ? '#fff' : '#000000' }}>
       <span
@@ -27,3 +32,11 @@ const AboutMeText = ({ isDarkMode }) => {
 };
 
 export default AboutMeText;
+
+AboutMeText.propTypes = {
+  isDarkMode: PropTypes.bool,
+};
+
+AboutMeText.defaultProps = {
+  isDarkMode: false,
+};

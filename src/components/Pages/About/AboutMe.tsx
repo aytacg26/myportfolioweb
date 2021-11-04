@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getGitHubRepos } from '../../../store/Actions/gitHubActions';
 import PresentationSection from '../../UI/PresentationSection/PresentationSection';
@@ -6,16 +6,19 @@ import Heading from '../../UI/Heading/Heading';
 import Skills from '../../Skills/Skills';
 import PersonalSection from './AboutMeSections/PersonalSection';
 import AboutMeText from './AboutMeSections/AboutMeText';
-import classes from './AboutMe.module.css';
 import ProfileBadges from './AboutMeSections/ProfileBadges';
 import Github from '../../../Assets/Images/Skills/Github.png';
 import GithubLight from '../../../Assets/Images/Skills/GithubLight.png';
 import Loader from '../../UI/Loader/Loader';
 import RepoItem from '../../UI/RepoItem/RepoItem';
 import EntryCard from '../../UI/EntryCard/EntryCard';
+import { IRootState } from '../../../Interfaces/IState';
+import { repoGitHub } from '../../../Types/ComponentPropTypes';
+import classes from './AboutMe.module.scss';
 
+//TODO : Divide into 3 components (Refactoring Required!!!)
 const AboutMe = () => {
-  const { mode, gitHub } = useSelector((state) => state);
+  const { mode, gitHub } = useSelector((state: IRootState) => state);
   const { darkMode } = mode;
   const { repos, loading, error, errorMessage } = gitHub;
   const dispatch = useDispatch();
@@ -34,7 +37,7 @@ const AboutMe = () => {
 
       <div className={classes.AboutMeSkills}>
         <Heading title='Skills' />
-        <Skills isDarkMode={darkMode} />
+        <Skills />
       </div>
 
       <div className={classes.Section}>
@@ -73,7 +76,7 @@ const AboutMe = () => {
           {repos && (
             <div className={classes.GitHubReposList}>
               <ul>
-                {repos.map((repo) => (
+                {repos.map((repo: repoGitHub) => (
                   <RepoItem repo={repo} key={repo.id} />
                 ))}
               </ul>
@@ -126,6 +129,7 @@ const AboutMe = () => {
           entryText='I was responsible from solving problems and gathering requests of the customers in Famagusta, apart from
           existing customers, I was responsible from finding new customers and attending meetings with the construction companies 
           of new projects. '
+          isDarkMode={darkMode}
         />
         <EntryCard
           heading='Özerk Co. Ltd'
@@ -134,6 +138,7 @@ const AboutMe = () => {
           endYear='11/2010'
           location='Nicosia, Cyprus'
           entryText='I was responsible from assessing budget and stock plans and management of branch personnal'
+          isDarkMode={darkMode}
         />
         <EntryCard
           heading='YAR Ltd'
@@ -143,6 +148,7 @@ const AboutMe = () => {
           entryText='Assited compliance department in performing internal audits of processes and systems to facilitate
           importation and exportation of products. Creating and transmitting accurate documentation to gorvenment
           agencies for all import activities.'
+          isDarkMode={darkMode}
         />
       </div>
     </PresentationSection>

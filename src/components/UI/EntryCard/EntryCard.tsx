@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 interface IProps {
   heading: string;
   subHeading?: string;
-  startYear?: number;
-  endYear?: number;
+  startYear?: string;
+  endYear?: string;
   entryText?: string;
   location?: string;
   grade?: string;

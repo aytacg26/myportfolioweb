@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
-import classes from '../AboutMe.module.css';
+import classes from '../AboutMe.module.scss';
 import me from '../../../../Assets/Images/aytac_guley.png';
 
-import React from 'react';
-
+//TODO : Divide into three parts
 const PersonalSection = () => {
   const [moveHeading, setMoveHeading] = useState(false);
   const [rotateImage, setRotateImage] = useState(false);

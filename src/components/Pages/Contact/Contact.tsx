@@ -9,9 +9,10 @@ import { GiSelfLove } from 'react-icons/gi';
 import { ImLocation2 } from 'react-icons/im';
 import { MdPhoneAndroid, MdEmail } from 'react-icons/md';
 import { BsFacebook, BsInstagram, BsTwitter, BsLinkedin } from 'react-icons/bs';
+import { IRootState } from '../../../Interfaces/IState';
 
 import ContactForm from './ContactForm/ContactForm';
-import classes from './Contact.module.css';
+import classes from './Contact.module.scss';
 
 const messages = [
   'I like to create things with fun, open minded people. Feel free to say hello!',
@@ -30,7 +31,7 @@ const Contact = () => {
   const [contactHeading, setContactHeading] = useState(0);
   const [messageSend, setMessageSend] = useState(false);
 
-  const { darkMode } = useSelector((state) => state.mode);
+  const { darkMode } = useSelector((state: IRootState) => state.mode);
 
   /*@TODO :
     -check validation onBlur
@@ -48,7 +49,7 @@ const Contact = () => {
     the form will be cleared, and for 6 seconds, message send component will take place
     instead of ContactForm component.
 
-    -Divide this component into multiple parts if it is possible, it seems a little bit long!
+    -Divide this component into multiple parts! Refactoring Required
   */
 
   useEffect(() => {
@@ -64,20 +65,20 @@ const Contact = () => {
     }
   }, [messageSend]);
 
-  const nameEntryHandler = (e) => {
+  const nameEntryHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
     setIsValidName(true);
   };
-  const emailEntryHandler = (e) => {
+  const emailEntryHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
     setIsValidEmail(true);
   };
-  const messageEntryHandler = (e) => {
+  const messageEntryHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMessage(e.target.value);
     setIsValidMessage(true);
   };
 
-  const formSubmitHandler = (e) => {
+  const formSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     //Validation
@@ -113,7 +114,7 @@ const Contact = () => {
       <div className={`${classes.Headings} ${darkMode && classes.darkMode}`}>
         <h1>Contact</h1>
         <h3>
-          I'd <GiSelfLove style={{ color: darkMode && 'red' }} /> to be in
+          I'd <GiSelfLove style={{ color: darkMode ? 'red' : '' }} /> to be in
           touch!
         </h3>
         <h5>{messages[contactHeading]}</h5>

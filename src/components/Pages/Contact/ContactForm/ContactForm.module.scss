@@ -1,0 +1,24 @@
+.MessageForm {
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: 100%;
+  position: relative;
+  margin-right: 20px;
+}
+
+.ErrorMessages {
+  padding: 10px;
+  font-size: 0.75em;
+  color: rgba(255, 42, 42, 0.9);
+  font-style: italic;
+
+  p {
+    margin-bottom: 4px;
+  }
+}
+
+@media (max-width: 900px) {
+  .MessageForm {
+    margin: 0 5px;
+  }
+}

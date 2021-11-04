@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 interface IProps {
   href: string;
   title: string;
-  logoIcon?: string;
+  logoIcon?: JSX.Element;
   badgeColor: string;
 }
 
