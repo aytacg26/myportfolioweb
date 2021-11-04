@@ -1,0 +1,30 @@
+@import '../../../../scss/variables.scss';
+
+.HeaderMenuContainer {
+  padding: 9px 20px;
+  background-color: transparent;
+  z-index: 5;
+  display: flex;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  border-right: 1px solid #ccc;
+  margin-right: 15px;
+
+  a {
+    font-size: 0.68em;
+    color: $header-text-color !important;
+    margin-right: 25px;
+
+    &:hover {
+      color: yellowgreen !important;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .HeaderContainer {
+    display: none;
+  }
+}

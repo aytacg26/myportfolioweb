@@ -1,0 +1,23 @@
+@import '../../../scss/variables.scss';
+
+.Badge {
+  text-decoration: none;
+  display: flex;
+  padding: 5px 10px;
+  width: 150px;
+  background-color: $header-color;
+  margin: 4px;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.85em;
+  min-height: 30px;
+  align-items: center;
+}
+
+.BadgeIcon {
+  font-size: 1.25em;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}

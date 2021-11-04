@@ -1,0 +1,50 @@
+@import '../../../scss/variables.scss';
+
+.ListItem {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+
+  a {
+    text-decoration: none;
+    color: var(--header-text-color);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ListItemContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: inherit;
+    padding: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    transition: 0.25s linear;
+    transition-property: background-color, color;
+
+    &.current {
+      background-color: $header-text-color;
+      color: $header-color;
+    }
+
+    &:hover {
+      background-color: $header-text-color;
+      color: $header-color;
+    }
+  }
+
+  .ListItemIconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+}
+
+.ListText {
+  font-size: 0.9em;
+  padding-top: -4px;
+  margin-left: 15px;
+}
